@@ -1,0 +1,19 @@
+%h1 日報一覧
+
+= link_to "新規作成", new_daily_report_path
+
+%table
+  %thead
+    %tr
+      %th 日付
+      %th 内容
+      %th
+  %tbody
+    - @daily_reports.each do |daily_report|
+      %tr
+        %td= daily_report.report_date
+        %td= truncate(daily_report.content, length: 50)
+        %td
+          = link_to "詳細", daily_report
+          = link_to "編集", edit_daily_report_path(daily_report)
+          = link_to "削除", daily_report, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }
