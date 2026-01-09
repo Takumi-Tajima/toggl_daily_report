@@ -37,6 +37,7 @@ export default class extends Controller {
           start
           stop
           duration
+          projectName
         }
       `)
     }
@@ -63,7 +64,8 @@ export default class extends Controller {
         const stopTime = entry.stop ? this.formatTime(entry.stop) : '作業中'
         const duration = this.formatDuration(entry.duration)
         const description = entry.description || '(説明なし)'
-        togglLines.unshift(`   ${startTime} ~ ${stopTime} ${description} ${duration}`)
+        const projectName = entry.projectName ? `[${entry.projectName}] ` : ''
+        togglLines.unshift(`   ${startTime} ~ ${stopTime} ${projectName}${description} ${duration}`)
       })
       lines.push(...togglLines)
     }

@@ -6,5 +6,7 @@ module Types
     field :stop, String
     field :duration, Int, null: false
     field :project_id, Int
+    field :workspace_id, Int
+    field :project_name, String
   end
 end

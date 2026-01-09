@@ -12,6 +12,11 @@ class TogglApiClient
     response.body
   end
 
+  def fetch_project(workspace_id, project_id)
+    response = connection.get("workspaces/#{workspace_id}/projects/#{project_id}")
+    response.body
+  end
+
   private
 
   def connection
