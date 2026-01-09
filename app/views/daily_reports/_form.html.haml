@@ -6,17 +6,6 @@
         - daily_report.errors.full_messages.each do |message|
           %li= message
 
-
-  .field
-    %label 取得する情報
-    %div
-      = label_tag :include_toggl, '作業時間(Togglより取得)を含める'
-      = check_box_tag :include_toggl, true, true,  data: { daily_report_form_target: "togglCheckbox" }
-    %div
-      = label_tag :include_github, 'PRの情報を取得する'
-      = check_box_tag :include_github, true, true, data: { daily_report_form_target: "githubCheckbox" }
-    = button_tag '生成', type: 'button', data: { action: "daily-report-form#generate" }
-
   .field
     %label 取得する情報
     %div
