@@ -24,7 +24,13 @@ module Types
 
     def todays_toggl_entries
       client = TogglApiClient.new
-      client.fetch_time_entries_for_today
+      entries = client.fetch_time_entries_for_today
+
+      project_names = fetch_project_names(client, entries)
+
+      entries.map do |entry|
+        entry.merge('project_name' => project_names[entry['project_id']])
+      end
     end
 
     # 今日作成したGitHub PRを取得
@@ -34,6 +40,20 @@ module Types
     def todays_github_pull_requests
       client = GithubApiClient.new
       client.fetch_todays_pull_requests
+    end
+
+    private
+
+    def fetch_project_names(client, entries)
+      project_keys = entries
+        .select { |e| e['project_id'].present? && e['workspace_id'].present? }
+        .map { |e| [ e['workspace_id'], e['project_id'] ] }
+        .uniq
+
+      project_keys.each_with_object({}) do |(workspace_id, project_id), hash|
+        project = client.fetch_project(workspace_id, project_id)
+        hash[project_id] = project['name'] if project
+      end
     end
   end
 end
