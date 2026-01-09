@@ -1,4 +1,4 @@
-= form_with model: daily_report do |form|
+= form_with model: daily_report, data: { controller: "daily-report-form" } do |form|
   - if daily_report.errors.any?
     #error_explanation
       %h2= "#{daily_report.errors.count}件のエラーがあります"
@@ -11,8 +11,18 @@
     = form.date_field :report_date
 
   .field
+    %label 取得する情報
+    %div
+      = label_tag :include_toggl, '作業時間(Togglより取得)を含める'
+      = check_box_tag :include_toggl, true, true,  data: { daily_report_form_target: "togglCheckbox" }
+    %div
+      = label_tag :include_github, 'PRの情報を取得する'
+      = check_box_tag :include_github, true, true, data: { daily_report_form_target: "githubCheckbox" }
+    = button_tag '生成', type: 'button', data: { action: "daily-report-form#generate" }
+
+  .field
     = form.label :content, "内容"
-    = form.text_area :content, rows: 10
+    = form.text_area :content, rows: 10, data: { daily_report_form_target: "contentTextarea" }
 
   .actions
     = form.submit
