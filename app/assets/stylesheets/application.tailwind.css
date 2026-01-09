@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+/* shared */
+@import "./shared/base.css";
+
+/* views */
+@import "./views/form.css";
+@import "./views/table.css";

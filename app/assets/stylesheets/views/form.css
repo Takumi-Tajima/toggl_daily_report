@@ -1,0 +1,108 @@
+/* フォーム共通スタイル */
+.form-input {
+  @apply block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 shadow-sm;
+  @apply focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500;
+}
+
+.form-input-error {
+  @apply border-red-500 focus:border-red-500 focus:ring-red-500;
+}
+
+.form-input-valid {
+  @apply border-green-500;
+}
+
+/* textarea */
+textarea.form-input {
+  @apply min-h-[120px] resize-y;
+  field-sizing: content;
+}
+
+/* checkbox */
+.form-checkbox {
+  @apply h-4 w-4 rounded border-gray-300 text-blue-600;
+  @apply focus:ring-blue-500;
+}
+
+/* select */
+select.form-input {
+  @apply pr-10 bg-white;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  appearance: none;
+}
+
+/* ボタン */
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300 focus:ring-gray-500;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+}
+
+/* フォームアクション */
+.actions {
+  @apply mt-6 flex items-center gap-4;
+}
+
+/* エラー表示 */
+#error_explanation {
+  @apply mb-4 rounded-md bg-red-50 border border-red-200 p-4;
+
+  h2 {
+    @apply text-red-800 font-medium mb-2;
+  }
+
+  ul {
+    @apply list-disc list-inside text-sm text-red-700;
+  }
+}
+
+/* フィールドラッパー（form_with用） */
+.field {
+  @apply mb-4;
+
+  label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="tel"],
+  input[type="url"],
+  textarea,
+  select {
+    @apply block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 shadow-sm;
+    @apply focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500;
+  }
+
+  textarea {
+    @apply min-h-[120px] resize-y;
+    field-sizing: content;
+  }
+
+  select {
+    @apply pr-10 bg-white;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    appearance: none;
+  }
+}
