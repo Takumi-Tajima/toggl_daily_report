@@ -4,6 +4,8 @@ gem 'rails', '~> 8.1.1'
 
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'faraday'
+gem 'graphql'
 gem 'haml-rails'
 gem 'image_processing'
 gem 'jbuilder'
@@ -21,5 +23,6 @@ group :development, :test do
 end
 
 group :development do
+  gem 'graphiql-rails'
   gem 'web-console'
 end
