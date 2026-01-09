@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import DailyReportFormController from "./daily_report_form_controller"
+application.register("daily-report-form", DailyReportFormController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
