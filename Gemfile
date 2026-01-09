@@ -4,6 +4,7 @@ gem 'rails', '~> 8.1.1'
 
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'faraday'
 gem 'haml-rails'
 gem 'image_processing'
 gem 'jbuilder'
